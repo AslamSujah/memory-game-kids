@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Memory Game for Kids</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Level Selection Screen -->
+    <div id="levelScreen" class="screen active">
+        <div class="level-container">
+            <h1 class="game-title">🌈 Memory Game 🌈</h1>
+            <p class="subtitle">Choose Your Level!</p>
+            
+            <div class="level-buttons">
+                <button class="level-btn easy" onclick="startGame('easy')">
+                    <span class="emoji">🐣</span>
+                    <span>Easy</span>
+                    <span class="level-info">6 Cards</span>
+                </button>
+                
+                <button class="level-btn medium" onclick="startGame('medium')">
+                    <span class="emoji">🦋</span>
+                    <span>Medium</span>
+                    <span class="level-info">12 Cards</span>
+                </button>
+                
+                <button class="level-btn hard" onclick="startGame('hard')">
+                    <span class="emoji">🦁</span>
+                    <span>Hard</span>
+                    <span class="level-info">20 Cards</span>
+                </button>
+            </div>
+            
+            <!-- Display Best Score -->
+            <div class="best-score">
+                <p>⭐ Best Score: <span id="bestScore">0</span> ⭐</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="screen">
+        <div class="game-container">
+            <!-- Top Section: Title and Stats -->
+            <header class="game-header">
+                <h1 class="game-title-small">🎮 Memory Game</h1>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Score:</span>
+                        <span id="score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Moves:</span>
+                        <span id="moves" class="stat-value">0</span>
+                    </div>
+                    <div class="stars" id="stars">
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                        <span class="star">⭐</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Middle Section: Game Board -->
+            <main class="game-board" id="gameBoard">
+                <!-- Cards will be generated here by JavaScript -->
+            </main>
+
+            <!-- Feedback Message -->
+            <div id="feedback" class="feedback"></div>
+
+            <!-- Bottom Section: Controls -->
+            <footer class="game-footer">
+                <button class="btn-restart" onclick="restartGame()">
+                    🔄 Restart
+                </button>
+                <button class="btn-back" onclick="backToMenu()">
+                    🏠 Menu
+                </button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Win Screen -->
+    <div id="winScreen" class="screen">
+        <div class="win-container">
+            <h1 class="win-title">🎉 Awesome! 🎉</h1>
+            <p class="win-message">You matched all the cards!</p>
+            
+            <div class="win-stats">
+                <div class="win-stat">
+                    <span class="win-emoji">⭐</span>
+                    <span id="finalScore">0</span>
+                    <span>Points</span>
+                </div>
+                <div class="win-stat">
+                    <span class="win-emoji">🎯</span>
+                    <span id="finalMoves">0</span>
+                    <span>Moves</span>
+                </div>
+            </div>
+            
+            <div class="win-buttons">
+                <button class="btn-play-again" onclick="restartGame()">
+                    🎮 Play Again
+                </button>
+                <button class="btn-menu" onclick="backToMenu()">
+                    🏠 Main Menu
+                </button>
+            </div>
+        </div>
+        
+        <!-- Confetti Container -->
+        <div id="confetti"></div>
+    </div>
+
+    <!-- Audio Elements (hidden) -->
+    <audio id="matchSound" preload="auto"></audio>
+    <audio id="wrongSound" preload="auto"></audio>
+    <audio id="winSound" preload="auto"></audio>
+
+    <!-- JavaScript Files -->
+    <script src="js/storage.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
