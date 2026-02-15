@@ -1,0 +1,46 @@
+.memory-game {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.card {
+  background: linear-gradient(to bottom right, #ffcc00, #ff6600);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .memory-game {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Additional styling for animations and transitions */
+.card {
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
